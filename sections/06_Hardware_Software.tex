@@ -1,0 +1,33 @@
+\section{ハードウェア構成・ソフトウェア構成}
+
+\subsection{ハードウェア構成}
+\begin{table}[htbp]
+  \centering
+  \caption{ハードウェア構成}
+  \label{tab:hardware}
+  \begin{tabular}{|l|l|l|l|}
+    \hline
+    \multicolumn{1}{|c|}{項目} & \multicolumn{1}{c|}{種類} & \multicolumn{1}{c|}{数量} & \multicolumn{1}{c|}{備考} \\ \hline
+    メインサーバー & レンタルサーバー & 1 & AWS \\ \hline
+    データベースサーバー & レンタルサーバー & 1 & AWS \\ \hline
+    主催者端末 & スマートフォン・PC & 1 & ブラウザが利用できる端末 \\ \hline
+    参加者端末 & スマートフォン・PC & 利用者数 & ブラウザが利用できる端末 \\ \hline
+  \end{tabular}
+\end{table}
+
+\subsection{ソフトウェア構成}
+\begin{table}[htbp]
+  \centering
+  \caption{ソフトウェア構成}
+  \label{tab:software}
+  \begin{tabular}{|l|l|l|}
+    \hline
+    \multicolumn{1}{|c|}{項目} & \multicolumn{1}{c|}{ソフトウェア} & \multicolumn{1}{c|}{備考} \\ \hline
+    バックエンド & Django & API構築・トーナメント自動生成処理 \\ \hline
+    フロントエンド & Next.js (TypeScript) & Web画面構築 \\ \hline
+    Webサーバー & Apacheまたは Nginx & \\ \hline
+    データベース & MySQL & 大会・選手・試合結果データの管理 \\ \hline
+    管理者端末 & iOS, Android, Windows, macOS, Linux & Webブラウザが動作するOS \\ \hline
+    利用者端末 & iOS, Android, Windows, macOS, Linux & Webブラウザが動作するOS \\ \hline
+  \end{tabular}
+\end{table}
