@@ -1,0 +1,80 @@
+\section{費用対効果}
+
+\subsection{効果}
+本システムは大会運営の効率化だけでなく、大会を探す、参加する、観戦する、過去の成績を振り返るという一連の体験を支援します。
+これにより、主催者の負担を軽減するとともに、競技者と観戦者が大会情報にアクセスしやすい環境を整え、
+小規模なゲーム大会への参加機会や観戦機会の拡大に貢献することを目指します。
+
+\subsection{収益}
+収益は、料金プラン契約による月額利用料、広告収入を想定します。
+
+\subsubsection*{広告収入}
+\[
+\num{100000} \text{円/月} \times 12 = \num{1200000} \text{円（年間）}
+\]
+
+\subsubsection*{料金モデルの概要}
+\begin{itemize}
+    \item \textbf{配信有料プラン}：配信時に \num{500}円
+    \item \textbf{オススメ配信}：サイト左上への掲載（有料プランに加算して \num{300}円 / \num{600}円 / \num{900}円 の3段階課金・主催者対象）
+    \item \textbf{配信手数料}：配信による収益発生時に 5\% を徴収（主催者・競技者の両方が対象）
+    \item \textbf{広告非表示（ON/OFF）課金}：\num{300}円（主催者・競技者・観戦者対象）
+\end{itemize}
+
+\subsubsection*{月額収益試算（月に配信プランでの大会が20大会開催される想定）}
+
+\begin{enumerate}
+    \item \textbf{配信有大会・オススメ配信課金}
+    \begin{itemize}
+        \item 配信有大会（月20）： $\num{500} \text{円} \times 20 = \num{10000} \text{円}$
+        \item オススメ配信（\num{300}円枠・10件）： $\num{300} \text{円} \times 10 = \num{3000} \text{円}$
+        \item オススメ配信（\num{600}円枠・5件）： $\num{600} \text{円} \times 5 = \num{3000} \text{円}$
+        \item オススメ配信（\num{900}円枠・1件）： $\num{900} \text{円} \times 1 = \num{900} \text{円}$
+        \item \textbf{小計}： \num{16900}円
+    \end{itemize}
+
+    \item \textbf{手数料収入}
+    \begin{itemize}
+        \item 主催者から： $\num{10000} \text{円} \times 0.05 \times 20 = \num{10000} \text{円}$
+        \item 競技者から： 競技者毎の1大会の配信収益 $\times 0.05$
+        \item \textbf{小計}： $\num{10000} + \alpha$ 円 \small（※ $\alpha$：競技者からの手数料収入合計）
+    \end{itemize}
+
+    \item \textbf{広告非表示（ON/OFF）課金}
+    \begin{itemize}
+        \item 競技者（30人）： $\num{300} \text{円} \times 30 = \num{9000} \text{円}$
+        \item 主催者（1人）： $\num{300} \text{円} \times 1 = \num{300} \text{円}$
+        \item 観戦者（5人）： $\num{300} \text{円} \times 5 = \num{1500} \text{円}$
+        \item \textbf{小計}： \num{10800}円
+    \end{itemize}
+
+    \item \textbf{プラン別料金体系}
+    \begin{itemize}
+        \item フリー： 32人まで（競技者）、1人（主催者） $\rightarrow +\num{0}$ 円
+        \item 配信プラン： 32人まで（競技者）、1人（主催者） $\rightarrow +\num{0}$ 円
+        \item 無制限プラン： 33人以上（競技者）、2人以上（主催者）
+        \begin{itemize}
+            \item 単発： $+\num{1500}$ 円
+            \item 月額： $+\num{1150}$ 円
+        \end{itemize}
+        \item \textbf{小計}： $+\beta$ 円 \small（※ $\beta$：無制限プランの契約数に応じた収入合計）
+    \end{itemize}
+\end{enumerate}
+
+% 4つの小計を合わせた月額合計
+\noindent\textbf{月額収益合計}： $\num{37700} + \alpha + \beta$ 円 / 月
+\subsection{費用}
+\begin{table}[htbp]
+    \centering
+    \caption{システム開発費用の内訳}
+    \begin{tabular}{|l|l|}
+        \hline
+        項目 & 費用 \\ \hline
+        開発用PC & 既存設備を利用 \\ \hline
+        サーバ & 既存PCまたは無料環境を利用 \\ \hline
+        DBMS & MySQLの場合無料 \\ \hline
+        開発ソフトウェア & 無料ソフトウェアを利用 \\ \hline
+        人件費 & $\num{300000} \text{円} \times 7 \text{人} \times 4 \text{か月} = \num{8400000} \text{円}$ \\ \hline
+        \textbf{合計} & \textbf{\num{8400000}円} \\ \hline
+    \end{tabular}
+\end{table}

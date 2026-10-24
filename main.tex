@@ -4,6 +4,13 @@
 \usepackage{graphicx}
 \usepackage{amsmath,amssymb}
 \usepackage{url}
+\usepackage{float}
+\usepackage{siunitx}
+\sisetup{
+  group-separator={,},
+  group-minimum-digits=4,
+  mode=text
+}
 
 % --- タイトル設定 ---
 \title{プロジェクト提案書}
@@ -11,7 +18,40 @@
 \date{\today}
 
 \begin{document}
-\maketitle
+\begin{titlepage}
+    \centering
+    \thispagestyle{empty} % 表紙のページ番号を非表示
+
+    \vspace*{3cm}
+
+    % システム名
+    {\Huge \bfseries 小規模ゲーム大会運営システム \\[0.3em] Play Line \par}
+
+    \vspace{1.5cm}
+
+    % 文書種別
+    {\LARGE \bfseries システム提案書 \par}
+
+    \vspace{3.5cm}
+
+    % 版数
+    {\Large 第 2.0 版 \par}
+
+    \vfill % 以下の要素をページ下部へ配置
+
+    % 日付
+    {\large \today \par}
+
+    \vspace{1.2cm}
+
+    % 開発チーム名
+    {\Large \bfseries コネクスティ \par}
+
+    \vspace{1cm}
+\end{titlepage}
+
+\clearpage
+\pagenumbering{arabic}
 
 % --- 目次の作成 ---
 \tableofcontents
@@ -24,9 +64,10 @@
 % \input{sections/04.tex}
 % \input{sections/05.tex}
 \input{sections/06_Hardware_Software.tex}
-% \input{sections/07.tex}
-% \input{sections/08.tex}
-% \input{sections/09.tex}
-% \input{sections/10.tex}
+\input{sections/07_OperationMaintenance.tex}
+\input{sections/08_CostEffectiveness.tex}
+\input{sections/09_DevelopmentStructureAndProjectSchedule.tex}
+\input{sections/10_SystemStrengths.tex}
+\input{sections/11_References.tex}
 
 \end{document}
