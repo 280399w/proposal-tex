@@ -33,7 +33,7 @@
 \contentsline {subsection}{\numberline {3.2}前提条件}{10}{}%
 \contentsline {subsection}{\numberline {3.3}制約事項}{10}{}%
 \contentsline {section}{\numberline {4}情報の流れ}{10}{}%
-\contentsline {subsection}{\numberline {4.1}登録}{10}{}%
+\contentsline {subsection}{\numberline {4.1}大会の作成}{10}{}%
 \contentsline {subsection}{\numberline {4.2}登録}{11}{}%
 \contentsline {subsection}{\numberline {4.3}試合結果登録}{13}{}%
 \contentsline {section}{\numberline {5}想定する利用者}{13}{}%
