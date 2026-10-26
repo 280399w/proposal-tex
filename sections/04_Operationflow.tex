@@ -1,18 +1,3 @@
-\documentclass[a4paper]{ltjsarticle}
-
-% --- 共通パッケージ設定 ---
-\usepackage{graphicx}
-\usepackage{amsmath,amssymb}
-\usepackage{url}
-\usepackage{float}
-\usepackage{siunitx}
-
-\usepackage{pgf-pie}
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.18}
-\usetikzlibrary{shapes.geometric, arrows.meta, positioning}
-
-\begin{document}
 \section{情報の流れ}
 
 \subsection{登録}
@@ -80,16 +65,17 @@
 
 \begin{figure}[H]
   \centering
-  \begin{tikzpicture}[
-    node distance=0.8cm,
-    box/.style={
-      rectangle, rounded corners=4pt,
-      draw=blue!60!black, fill=blue!8,
-      minimum width=2.6cm, minimum height=1.1cm,
-      align=center, thick
-    },
-    arrow/.style={-{Stealth[length=2.5mm]}, thick, draw=blue!60!black}
-  ]
+   \resizebox{\linewidth}{!}{%
+    \begin{tikzpicture}[
+      node distance=0.8cm,
+      box/.style={
+        rectangle, rounded corners=4pt,
+        draw=blue!60!black, fill=blue!8,
+        minimum width=2.6cm, minimum height=1.1cm,
+        align=center, thick
+      },
+      arrow/.style={-{Stealth[length=2.5mm]}, thick, draw=blue!60!black}
+    ]
     \node[box] (n1) {主催者};
     \node[box, right=of n1] (n2) {大会運営ステム};
     \node[box, right=of n2] (n3) {参加者情報の取得};
@@ -101,6 +87,7 @@
       \draw[arrow] (n\i) -- (n\j);
     }
   \end{tikzpicture}
+   }
   \caption{大会作成の流れ}
   \label{fig:publish_flow2}
 \end{figure}
@@ -188,6 +175,7 @@
 \subsection{試合結果登録}
 \begin{figure}[H]
   \centering
+  \resizebox{\linewidth}{!}{%
   \begin{tikzpicture}[
     node distance=0.8cm,
     box/.style={
@@ -210,6 +198,7 @@
       \draw[arrow] (n\i) -- (n\j);
     }
   \end{tikzpicture}
+  }
   \caption{大会作成の流れ}
   \label{fig:publish_flow3}
 \end{figure}
@@ -223,5 +212,3 @@
 更新された大会情報や試合結果はWebサイトを通じて競技者や主催者に提供されます。
 また、参加登録時に収集したメールアドレスを利用することで、試合予定の変更や試合結果の更新などを
 メールで通知する機能も実現できます。これにより、利用者がWebサイトを随時確認しなくても、重要な情報を把握しやすくなります。
-
-\end{document}
