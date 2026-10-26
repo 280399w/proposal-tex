@@ -8,10 +8,10 @@
 \contentsline {subsection}{\numberline {3.1}機能概要}{8}{}%
 \contentsline {subsubsection}{\numberline {3.1.1}競技者向け機能}{8}{}%
 \contentsline {paragraph}{大会一覧表示・検索機能}{8}{}%
-\contentsline {paragraph}{大会競技者登録機能}{8}{}%
-\contentsline {paragraph}{競技参加登録確認機能}{8}{}%
-\contentsline {paragraph}{大会進行状況確認機能}{8}{}%
-\contentsline {paragraph}{対戦相手・試合予定確認機能}{8}{}%
+\contentsline {paragraph}{大会競技者登録機能}{9}{}%
+\contentsline {paragraph}{競技参加登録確認機能}{9}{}%
+\contentsline {paragraph}{大会進行状況確認機能}{9}{}%
+\contentsline {paragraph}{対戦相手・試合予定確認機能}{9}{}%
 \contentsline {paragraph}{試合結果確認機能}{9}{}%
 \contentsline {subsubsection}{\numberline {3.1.2}主催者向け機能}{9}{}%
 \contentsline {paragraph}{大会作成機能}{9}{}%
@@ -24,16 +24,16 @@
 \contentsline {paragraph}{大会情報閲覧機能}{9}{}%
 \contentsline {paragraph}{選手検索機能}{9}{}%
 \contentsline {paragraph}{お気に入り選手登録機能}{9}{}%
-\contentsline {paragraph}{選手追跡機能}{9}{}%
-\contentsline {paragraph}{試合状況確認機能}{9}{}%
-\contentsline {paragraph}{次回試合確認機能}{9}{}%
-\contentsline {paragraph}{選手成績確認機能}{9}{}%
+\contentsline {paragraph}{選手追跡機能}{10}{}%
+\contentsline {paragraph}{試合状況確認機能}{10}{}%
+\contentsline {paragraph}{次回試合確認機能}{10}{}%
+\contentsline {paragraph}{選手成績確認機能}{10}{}%
 \contentsline {paragraph}{対戦履歴確認機能}{10}{}%
 \contentsline {paragraph}{トーナメント状況確認機能}{10}{}%
 \contentsline {subsection}{\numberline {3.2}前提条件}{10}{}%
 \contentsline {subsection}{\numberline {3.3}制約事項}{10}{}%
-\contentsline {section}{\numberline {4}情報の流れ}{10}{}%
-\contentsline {subsection}{\numberline {4.1}大会の作成}{10}{}%
+\contentsline {section}{\numberline {4}情報の流れ}{11}{}%
+\contentsline {subsection}{\numberline {4.1}大会の作成}{11}{}%
 \contentsline {subsection}{\numberline {4.2}登録}{11}{}%
 \contentsline {subsection}{\numberline {4.3}試合結果登録}{13}{}%
 \contentsline {section}{\numberline {5}想定する利用者}{13}{}%

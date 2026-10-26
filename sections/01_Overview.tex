@@ -8,6 +8,17 @@
 
 \begin{figure}[H]
   \centering
+  \makeatletter
+  \def\pgfpie@numbertext#1{%
+    \pgfpie@ifhidenumber{}{%
+      % ↓ 1未満の数値の場合はグラフ内部への数字描画を非表示にする
+      \ifdim #1pt<1pt
+      \else
+        \pgfpie@beforenumber#1\pgfpie@afternumber
+      \fi
+    }%
+  }
+  \makeatother
   \begin{tikzpicture}
     \pie[
       radius=3,
@@ -20,8 +31,8 @@
       36.3/{スポンサー},
       1.9/{チケット},
       7.4/{アイテム課金・賞金},
-      0.8/{グッズ},
-      0.3/{著作権許諾},
+      0.8/{グッズ(0.8)},
+      0.3/{\raisebox{-1.5em}{著作権許諾(0.3)}},
       37.3/{イベント運営},
       6.2/{ストリーミング}
     }
@@ -72,15 +83,14 @@
 一方、大会運営では参加者情報や試合結果の管理が必要となります。
 また、観戦者が注目選手の試合状況や次の対戦相手、大会全体の進行状況を簡単に確認できる仕組みも重要です。
 そのほかにも、小規模から中規模の大会では、大会情報とライブ配信が別々に提供されるなど、
-観戦者が必要な情報をまとめて確認しにくいといった問題もあります。\footnote{Esports Charts, “T1 enjoys first win in weeks and viewership boost as Faker returns from health break,” 2023年8月3日, https://escharts.com/news/t1-lcksummer2023-viewership （2026年10月15日閲覧） }
+観戦者が必要な情報をまとめて確認しにくいといった問題もあります。
 
 また、注目選手の参加が大会の視聴状況に影響する事例もあります。
 例えば、世界中で人気を集める対戦型ゲーム「League of Legends」では、
 韓国のプロチームに世界トップレベルに活躍する選手がいます。
 
 この選手の復帰後、離脱期間中と比較してピーク視聴者数が18.4\%、平均視聴者数が19\%増加したことが報告されています\cite{escharts2023}
-\footnote{[3] Esports Charts, “How League of Legends World Championship viewership has evolved over time,” Esports Charts, 2025. 
-  Esports Charts （2026年10月15日閲覧） }
+\footnote{Esports Charts, “T1 enjoys first win in weeks and viewership boost as Faker returns from health break,” 2023年8月3日, https://escharts.com/news/t1-lcksummer2023-viewership （2026年10月15日閲覧） }
 \begin{figure}[H]
   \centering
   \begin{tikzpicture}
@@ -123,7 +133,7 @@
 ExcelやGoogleスプレッドシートなどを組み合わせて参加者情報や試合結果を管理している例があります。
 実際に、60人規模のゲーム大会で、ゲーム画面のスコアをGoogleスプレッドシートへ手入力していた事例%\cite{qiita2022}
 もあり、情報の更新や共有に手作業が発生し、管理に遅れが生じることが課題となっています。
-また、情報が複数のツールに分散すると、協議参加者が自分の試合情報を確認しにくくなるだけでなく、
+また、情報が複数のツールに分散すると、競技参加者が自分の試合情報を確認しにくくなるだけでなく、
 観戦者もトーナメント表や試合結果、注目選手の対戦状況などを把握するために複数のページを確認する必要が生じます。
 
 既存の大会運営プラットフォームには、大会作成、参加者登録、トーナメント設定、勝敗管理などの機能が提供されています。
