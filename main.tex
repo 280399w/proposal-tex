@@ -11,6 +11,10 @@
   group-minimum-digits=4,
   mode=text
 }
+\usepackage{pgf-pie}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning}
 
 % --- タイトル設定 ---
 \title{プロジェクト提案書}
@@ -58,11 +62,11 @@
 \clearpage
 
 % --- 各章の読み込み ---
-% \input{sections/01.tex}
-% \input{sections/02.tex}
-% \input{sections/03.tex}
-% \input{sections/04.tex}
-% \input{sections/05.tex}
+\input{sections/01_Overview.tex}
+\input{sections/02_Proposal.tex}
+\input{sections/03_ProductFeatures.tex}
+\input{sections/04_Operationflow.tex}
+\input{sections/05_User.tex}
 \input{sections/06_Hardware_Software.tex}
 \input{sections/07_OperationMaintenance.tex}
 \input{sections/08_CostEffectiveness.tex}
