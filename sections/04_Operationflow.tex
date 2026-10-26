@@ -1,0 +1,227 @@
+\documentclass[a4paper]{ltjsarticle}
+
+% --- 共通パッケージ設定 ---
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{url}
+\usepackage{float}
+\usepackage{siunitx}
+
+\usepackage{pgf-pie}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning}
+
+\begin{document}
+\section{情報の流れ}
+
+\subsection{登録}
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[
+    node distance=0.8cm,
+    box/.style={
+      rectangle, rounded corners=4pt,
+      draw=blue!60!black, fill=blue!8,
+      minimum width=2.6cm, minimum height=1.1cm,
+      align=center, thick
+    },
+    arrow/.style={-{Stealth[length=2.5mm]}, thick, draw=blue!60!black}
+  ]
+    \node[box] (n1) {主催者};
+    \node[box, right=of n1] (n2) {Webシステム};
+    \node[box, right=of n2] (n3) {データベース};
+    \node[box, right=of n3] (n4) {大会情報\\の公開};
+
+    \foreach \i/\j in {1/2,2/3,3/4} {
+      \draw[arrow] (n\i) -- (n\j);
+    }
+  \end{tikzpicture}
+  \caption{大会情報公開の流れ}
+  \label{fig:publish_flow}
+\end{figure}
+
+主催者は管理画面から大会名、開催日時、大会形式、ルールなどを設定し、大会を作成します。
+作成された大会情報はデータベースに保存され、Webサイト上に公開されます。
+これにより、競技者は公開された大会情報を確認し、参加する大会を選択できるようになります。
+
+\subsection{登録}
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[
+    node distance=0.8cm,
+    box/.style={
+      rectangle, rounded corners=4pt,
+      draw=blue!60!black, fill=blue!8,
+      minimum width=2.6cm, minimum height=1.1cm,
+      align=center, thick
+    },
+    arrow/.style={-{Stealth[length=2.5mm]}, thick, draw=blue!60!black}
+  ]
+    \node[box] (n1) {競技者};
+    \node[box, right=of n1] (n2) {Webシステム};
+    \node[box, right=of n2] (n3) {入力内容の確認};
+    \node[box, right=of n3] (n4) {データベース};
+
+    \foreach \i/\j in {1/2,2/3,3/4} {
+      \draw[arrow] (n\i) -- (n\j);
+    }
+  \end{tikzpicture}
+  \caption{参加登録の流れ}
+  \label{fig:publish_flow1}
+\end{figure}
+競技者はWebサイトから参加したい大会を選択し、氏名、プレイヤー名、
+メールアドレスなどを入力して参加登録を行います。入力された情報はWebサイトを通じて
+サーバーに送信され、入力漏れや形式の誤り、既存の登録情報との重複などが確認されます。
+入力内容に問題がなければ、競技者情報がデータベースに保存され、登録完了の通知が表示されます。
+主催者は管理画面から参加者の一覧や登録状況を確認できます。
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[
+    node distance=0.8cm,
+    box/.style={
+      rectangle, rounded corners=4pt,
+      draw=blue!60!black, fill=blue!8,
+      minimum width=2.6cm, minimum height=1.1cm,
+      align=center, thick
+    },
+    arrow/.style={-{Stealth[length=2.5mm]}, thick, draw=blue!60!black}
+  ]
+    \node[box] (n1) {主催者};
+    \node[box, right=of n1] (n2) {大会運営ステム};
+    \node[box, right=of n2] (n3) {参加者情報の取得};
+    \node[box, right=of n3] (n4) {トーナメント作成};
+    \node[box, right=of n4] (n5) {データベースに保存};
+    \node[box, right=of n5] (n6) {競技者・観戦者への情報提供};
+
+    \foreach \i/\j in {1/2,2/3,3/4,4/5,5/6} {
+      \draw[arrow] (n\i) -- (n\j);
+    }
+  \end{tikzpicture}
+  \caption{大会作成の流れ}
+  \label{fig:publish_flow2}
+\end{figure}
+主催者は管理画面から大会の形式やルールを設定し、トーナメントの作成を実行します。
+競技者は、スマートフォンやPCからWebサイトへアクセスし、大会への参加登録を行います。
+大会運営システムは、データベースに保存されている大会参加者情報を取得し、登録人数や設定された大会形式に基づいて
+対戦組み合わせを生成します。大会形式には、一度の敗北で敗退するシングルエリミネーションや、
+参加者同士がそれぞれ対戦する総当たり方式などがあります。
+
+シングルエリミネーションでは、各試合の章さが次のラウンドに進み、敗者は敗退します。
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[line width=1pt, x=1cm, y=1cm]
+    % 選手名
+    \node[anchor=east] at (0,6) {A};
+    \node[anchor=east] at (0,4.5) {B};
+    \node[anchor=east] at (0,3) {C};
+    \node[anchor=east] at (0,1.5) {D};
+    \node[anchor=east] at (0,0) {E};
+    \node[anchor=east] at (0,-1.5) {F};
+    \node[anchor=east] at (0,-3.3) {G};
+
+    % 1回戦：横線と縦線
+    \draw (0.2,6)    -- (2,6)    -- (2,4.5)  -- (0.2,4.5);   % A-B
+    \draw (0.2,3)    -- (2,3)    -- (2,1.5)  -- (0.2,1.5);   % C-D
+    \draw (0.2,0)    -- (2,0)    -- (2,-1.5) -- (0.2,-1.5);  % E-F
+
+    % 1回戦の勝者位置から2回戦へ
+    \draw (2,5.25)   -- (4,5.25) -- (4,2.25) -- (2,2.25);    % (A-B) vs (C-D)
+    \draw (2,-0.75)  -- (4,-0.75) -- (4,-3.3) -- (0.2,-3.3); % (E-F) vs G
+
+    % 2回戦の勝者位置から決勝へ
+    \draw (4,3.75)   -- (6,3.75) -- (6,-2.0)  -- (4,-2.0);   % 決勝
+    \draw (6,0.875)  -- (7,0.875);                            % 優勝者への線
+  \end{tikzpicture}
+  \caption{シングルエリミネーション}
+  \label{fig:tournament}
+\end{figure}
+
+一方、総当たり方式では、各競技者の対戦結果を集計し、勝敗数などの条件に基づいて順位を決定します。
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm, line width=0.6pt]
+    % タイトル
+    \node[anchor=west, font=\large\bfseries] at (0,1.6) {試合名};
+
+    % 横線（ヘッダ上端は右の5列分だけ）
+    \draw (3,1) -- (10.5,1);
+    \foreach \y in {0,-1.5,-3,-4.5,-6,-7.5} {
+      \draw (0,\y) -- (10.5,\y);
+    }
+
+    % 縦線（左端は行ラベル部分だけ、他はヘッダから）
+    \draw (0,0) -- (0,-7.5);
+    \foreach \x in {3,4.5,6,7.5,9,10.5} {
+      \draw (\x,1) -- (\x,-7.5);
+    }
+
+    % 列見出し（上）
+    \foreach \i in {1,...,5} {
+      \node[font=\small, text width=1.2cm, align=center]
+        at ({3+1.5*\i-0.75}, 0.5) {チーム名};
+    }
+
+    % 行見出し（左）
+    \foreach \i in {1,...,5} {
+      \node[font=\small] at (1.5, {-1.5*\i+0.75}) {チーム名};
+    }
+
+    % 自分自身との対戦マスの斜線
+    \foreach \i in {1,...,5} {
+      \draw ({3+1.5*(\i-1)}, {-1.5*(\i-1)}) -- ({3+1.5*\i}, {-1.5*\i});
+    }
+  \end{tikzpicture}
+  \caption{総当たり戦の対戦表}
+  \label{fig:roundrobin}
+\end{figure}
+
+主催者は管理画面から生成された組み合わせを確認し、必要に応じて修正を行います。
+また、競技者はWebサイトを通じて自分の対戦相手や試合予定を確認できます。
+登録された情報は主催者用の管理画面から確認できるようになり、主催者じゃ参加者の一覧や登録状況を把握できます。
+
+
+\subsection{試合結果登録}
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[
+    node distance=0.8cm,
+    box/.style={
+      rectangle, rounded corners=4pt,
+      draw=blue!60!black, fill=blue!8,
+      minimum width=2.6cm, minimum height=1.1cm,
+      align=center, thick
+    },
+    arrow/.style={-{Stealth[length=2.5mm]}, thick, draw=blue!60!black}
+  ]
+    \node[box] (n1) {主催者};
+    \node[box, right=of n1] (n2) {試合結果の入力};
+    \node[box, right=of n2] (n3) {大会運営システム};
+    \node[box, right=of n3] (n4) {結果の検証・勝者判定};
+    \node[box, right=of n4] (n5) {データベース};
+    \node[box, right=of n5] (n6) {次の対戦への反映};
+    \node[box, right=of n6] (n7) {競技者・主催者};
+
+    \foreach \i/\j in {1/2,2/3,3/4,4/5,5/6,6/7} {
+      \draw[arrow] (n\i) -- (n\j);
+    }
+  \end{tikzpicture}
+  \caption{大会作成の流れ}
+  \label{fig:publish_flow3}
+\end{figure}
+試合終了後、主催者は管理画面から対戦カードを選択し、各競技者の特典や勝敗などの試合結果を登録します。
+判定された試合結果はデータベースに保存され、対戦履歴や大会の進行状況を管理します。
+シングルエリミネーションの場合、システムは勝者を次のラウンドの対戦枠に自動的に割り当てます。
+これにより、主催者が勝者の名前を手作業で次の対戦表に転機する必要がなくなります。
+また、総当たり方式の場合は、登録された試合毛kkをもとに勝利数や順位などを集計します。
+試合結果通りにシステムは必要に応じて順位表や大会の進行状況を更新します。
+
+更新された大会情報や試合結果はWebサイトを通じて競技者や主催者に提供されます。
+また、参加登録時に収集したメールアドレスを利用することで、試合予定の変更や試合結果の更新などを
+メールで通知する機能も実現できます。これにより、利用者がWebサイトを随時確認しなくても、重要な情報を把握しやすくなります。
+
+\end{document}
