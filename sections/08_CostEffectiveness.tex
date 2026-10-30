@@ -5,64 +5,6 @@
 これにより、主催者の負担を軽減するとともに、競技者と観戦者が大会情報にアクセスしやすい環境を整え、
 小規模なゲーム大会への参加機会や観戦機会の拡大に貢献することを目指します。
 
-\subsection{収益}
-収益は、料金プラン契約による月額利用料、広告収入を想定します。
-
-\subsubsection*{広告収入}
-\[
-\num{100000} \text{円/月} \times 12 = \num{1200000} \text{円（年間）}
-\]
-
-\subsubsection*{料金モデルの概要}
-\begin{itemize}
-    \item \textbf{配信有料プラン}：配信時に \num{500}円
-    \item \textbf{オススメ配信}：サイト左上への掲載（有料プランに加算して \num{300}円 / \num{600}円 / \num{900}円 の3段階課金・主催者対象）
-    \item \textbf{配信手数料}：配信による収益発生時に 5\% を徴収（主催者・競技者の両方が対象）
-    \item \textbf{広告非表示（ON/OFF）課金}：\num{300}円（主催者・競技者・観戦者対象）
-\end{itemize}
-
-\subsubsection*{月額収益試算（月に配信プランでの大会が20大会開催される想定）}
-
-\begin{enumerate}
-    \item \textbf{配信有大会・オススメ配信課金}
-    \begin{itemize}
-        \item 配信有大会（月20）： $\num{500} \text{円} \times 20 = \num{10000} \text{円}$
-        \item オススメ配信（\num{300}円枠・10件）： $\num{300} \text{円} \times 10 = \num{3000} \text{円}$
-        \item オススメ配信（\num{600}円枠・5件）： $\num{600} \text{円} \times 5 = \num{3000} \text{円}$
-        \item オススメ配信（\num{900}円枠・1件）： $\num{900} \text{円} \times 1 = \num{900} \text{円}$
-        \item \textbf{小計}： \num{16900}円
-    \end{itemize}
-
-    \item \textbf{手数料収入}
-    \begin{itemize}
-        \item 主催者から： $\num{10000} \text{円} \times 0.05 \times 20 = \num{10000} \text{円}$
-        \item 競技者から： 競技者毎の1大会の配信収益 $\times 0.05$
-        \item \textbf{小計}： $\num{10000} + \alpha$ 円 \small（※ $\alpha$：競技者からの手数料収入合計）
-    \end{itemize}
-
-    \item \textbf{広告非表示（ON/OFF）課金}
-    \begin{itemize}
-        \item 競技者（30人）： $\num{300} \text{円} \times 30 = \num{9000} \text{円}$
-        \item 主催者（1人）： $\num{300} \text{円} \times 1 = \num{300} \text{円}$
-        \item 観戦者（5人）： $\num{300} \text{円} \times 5 = \num{1500} \text{円}$
-        \item \textbf{小計}： \num{10800}円
-    \end{itemize}
-
-    \item \textbf{プラン別料金体系}
-    \begin{itemize}
-        \item フリー： 32人まで（競技者）、1人（主催者） $\rightarrow +\num{0}$ 円
-        \item 配信プラン： 32人まで（競技者）、1人（主催者） $\rightarrow +\num{0}$ 円
-        \item 無制限プラン： 33人以上（競技者）、2人以上（主催者）
-        \begin{itemize}
-            \item 単発： $+\num{1500}$ 円
-            \item 月額： $+\num{1150}$ 円
-        \end{itemize}
-        \item \textbf{小計}： $+\beta$ 円 \small（※ $\beta$：無制限プランの契約数に応じた収入合計）
-    \end{itemize}
-\end{enumerate}
-
-% 4つの小計を合わせた月額合計
-\noindent\textbf{月額収益合計}： $\num{37700} + \alpha + \beta$ 円 / 月
 \subsection{費用}
 \begin{table}[htbp]
     \centering
@@ -74,7 +16,68 @@
         サーバ & 既存PCまたは無料環境を利用 \\ \hline
         DBMS & MySQLの場合無料 \\ \hline
         開発ソフトウェア & 無料ソフトウェアを利用 \\ \hline
-        人件費 & $\num{300000} \text{円} \times 7 \text{人} \times 4 \text{か月} = \num{8400000} \text{円}$ \\ \hline
-        \textbf{合計} & \textbf{\num{8400000}円} \\ \hline
+        人件費 & $\num{300,000} \text{円} \times 7 \text{人} \times 4 \text{か月} = \num{8,400,000} \text{円}$ \\ \hline
+        \textbf{合計} & \textbf{\num{8,400,000}円} \\ \hline
     \end{tabular}
 \end{table}
+
+\subsection{運用費用（5年）}
+サーバ利用料：$\num{910,000} \text{円 / 年} \times 5 = \num{4,550,000} \text{円}$ 
+人件費：$\num{3,000,000} \text{円 / 年} \times 5 = \num{15,000,000} \text{円}$ 
+
+\subsection{収益}
+収益は、料金プラン契約による月額利用料、広告収入を想定します。
+
+\subsubsection*{料金モデルの概要}
+\begin{itemize}
+    \item \textbf{人数別小規模プラン（32人まで）}： \num{1,000}円
+    \item \textbf{人数別中規模プラン（64人まで）}： \num{1,500}円
+    \item \textbf{人数別大規模プラン（人数無制限）}： \num{3,000}円
+    \item \textbf{オススメ配信課金プラン}：優先してサイト上部に掲載（有料プランに加算して \num{300}円 / \num{600}円 / \num{900}円 の3段階課金・主催者対象）
+    \item \textbf{広告非表示課金}：\num{300}円（主催者・競技者・観戦者対象）
+\end{itemize}
+
+\subsubsection*{月額収益試算（月に大会が200大会開催される想定）}
+
+\item \textbf{サイトを訪れる人数}
+    \begin{itemize}
+        \item $\num{200} \text{大会} \times \text{主催者（1人想定）} = \num{200} \text{人}$
+        \item $\num{200} \text{大会} \times \text{競技者（平均30人想定）} = \num{6,000} \text{人}$
+        \item $\num{200} \text{大会} \times \text{観戦者（平均500人想定）}= \num{100,000} \text{人}$
+        \item \textbf{計}： \num{106,200}人
+    \end{itemize}
+
+\begin{enumerate}
+    \item \textbf{人数別プラン（小規模プラン： 85\%, 中規模プラン： 10\%, 大規模プラン： 5\% で想定）}
+    \begin{itemize}
+        \item 小規模プラン（月170大会）： $\num{1,000} \text{円} \times 170 = \num{170,000} \text{円}$
+        \item 中規模プラン（月20大会）： $\num{1,500} \text{円} \times 20 = \num{30,000} \text{円}$
+        \item 大規模プラン（月10大会）： $\num{3,000} \text{円} \times 10 = \num{30,000} \text{円}$
+        \item \textbf{小計}： \num{230,000}円
+    \end{itemize}
+
+    \item \textbf{オススメ配信課金プラン}
+    \begin{itemize}
+        \item オススメ配信（\num{300}円枠・100件）： $\num{300} \text{円} \times 100 = \num{30,000} \text{円}$
+        \item オススメ配信（\num{600}円枠・50件）： $\num{600} \text{円} \times 50 = \num{30,000} \text{円}$
+        \item オススメ配信（\num{900}円枠・10件）： $\num{900} \text{円} \times 10 = \num{9,000} \text{円}$
+        \item \textbf{小計}： \num{69,000}円
+    \end{itemize}
+
+    \item \textbf{広告非表示課金}
+    \begin{itemize}
+        \item \textbf{サイトを訪れる人数}： \num{106,200}人（この内1,500人（1.4\%）が課金するという想定）
+        \item ： $\num{300} \text{円} \times 1500 = \num{450,000} \text{円}$
+        \item \textbf{小計}： \num{450,000}円
+    \end{itemize}
+
+% 4つの小計を合わせた月額合計
+\noindent\textbf{課金プラン月間収益合計}： $\num{749,000}$ 円 / 月
+
+\subsubsection*{広告収入}
+月間ページビュー数 200,000 回だと想定
+\[
+\num{645,000} \text{円（年間）}
+\]
+
+\noindent\textbf{年間収益合計}： $\num{749,000} \text{円 / 月} \times 12 + \num{645,000} \text{円 / 年} = \num{9,633,000} \text{円}$
